@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #333;
+    transition: all .2s ease;
+}
+
+.app {
+    background-color: #eee;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+.imageContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 12rem);
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    width: max-content;
+    margin: 0 auto;
+}

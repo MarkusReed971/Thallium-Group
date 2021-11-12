@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card__image {
+    margin: 0 auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.card__title {
+    margin: 10px auto;
+    max-height: 42px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card__footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__album {
+    font-size: .8rem;
+    color: #999;
+}
+
+.card__deleteButton {
+    color: red;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.card__deleteButton:hover {
+    text-decoration: underline;
+}

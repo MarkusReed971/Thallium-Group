@@ -1,0 +1,48 @@
+.modal {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(7px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_show {
+    display: flex;
+    height: 100%;
+}
+
+.modal_hide {
+    display: none;
+    height: 0;
+}
+
+.modal__card {
+    width: max-content;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.modal__album {
+    font-size: .8rem;
+    color: #999;
+}
+
+.modal__hideButton {
+    position: absolute;
+    top: -12px;
+    right: -20px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.modal__image {
+    width: 600px;
+    height: 600px;
+}

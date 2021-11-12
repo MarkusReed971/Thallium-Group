@@ -2,19 +2,28 @@ const express = require("express")
 const router = express.Router();
 const Image = require("../models/Image")
 
-router.get("/", async (req, res) => {
+
+router.get("/albums", async (req, res) => {
+	let albumList = await Image.distinct("albumId");
+	res.send(albumList);
+})
+
+router.get("/:filters", async (req, res) => {
+	const filters = JSON.parse(req.params.filters);
+
 	let findOptions = {};
-	if (req.body.albumId) {
+	if (filters.albumId) {
 		findOptions = {
-			"albumId": req.body.albumId
+			"albumId": filters.albumId
 		}
 	}
 
-	const images = await Image.find(findOptions)
+	const imageList = await Image.find(findOptions)
 		.sort({ "albumId": 1, "_id": 1 })
-		.skip(req.body.skip)
-		.limit(req.body.limit);
-	res.send(images);
+		.skip(filters.skip)
+		.limit(filters.limit);
+	const count = await Image.countDocuments(findOptions);
+	res.send({count, imageList});
 })
 
 router.delete('/:id', async (req, res) => {
@@ -27,6 +36,5 @@ router.delete('/:id', async (req, res) => {
 		res.send({ error: "Image doesn't exist!" });
 	}	
 })
-
 
 module.exports = router;
